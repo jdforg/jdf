@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جمعية الشباب للتنمية والتكوين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #ffc300;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --white: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        .hero {
+            background-image: url('ss.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .activities {
+            padding: 4rem 0;
+        }
+        .activities h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .activity-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        .activity-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .activity-content {
+            padding: 1.5rem;
+        }
+        .activity-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .activity-content p {
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 0;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            margin-right: 2rem;
+            margin-bottom: 1rem;
+        }
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        .footer-section ul {
+            list-style-type: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        .social-icons {
+            display: flex;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100% - 70px);
+                background-color: var(--primary-color);
+                transition: 0.5s;
+                overflow-y: auto;
+            }
+            nav.active {
+                right: 0;
+            }
+            nav ul {
+                display: block;
+                width: fit-content;
+                margin: 80px auto 0 auto;
+                text-align: center;
+                transition: 0.5s;
+                opacity: 0;
+            }
+            nav.active ul {
+                opacity: 1;
+            }
+            nav ul li {
+                margin-bottom: 12px;
+            }
+            nav ul li a {
+                margin-bottom: 12px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">JDF</div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن الجمعية</a></li>
+                    <li><a href="#activities">الأنشطة</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>جمعية الشباب للتنمية والتكوين</h1>
+                <p>نحو مستقبل أفضل للشباب من خلال التنمية والتكوين</p>
+            </div>
+        </section>
+
+        <section id="activities" class="activities">
+            <div class="container">
+                <h2>أنشطتنا</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <img src="imag5.jpg" alt="معرض التوظيف">
+                        <div class="activity-content">
+                            <h3>معرض التوظيف</h3>
+                            <p>معرض التوظيف في شفشاون يفتح آفاقًا جديدة للشباب في المدينة...</p>
+                            <a href="le salon d'emploi.php" class="btn">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="imag3.jpg" alt="التدريب">
+                        <div class="activity-content">
+                            <h3>التدريب</h3>
+                            <p>تنظم جمعية الشباب، بالتنسيق مع جمعية ES Maroc، دورة تدريبية بعنوان "تحسين مهارات الشباب لدخول سوق العمل"...</p>
+                            <a href="formation.php" class="btn">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="imag7.jpg" alt="ورشة عمل التجارة الإلكترونية">
+                        <div class="activity-content">
+                            <h3>ورشة عمل التجارة الإلكترونية</h3>
+                            <p>نظمت جمعية JDF في شفشاون في 29 سبتمبر 2024 ورشة عمل تدريبية حول التجارة الإلكترونية...</p>
+                            <a href="Atelier en e-commerce.php" class="btn">اقرأ المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li>البريد الإلكتروني: associationjdf@gmail.com</li>
+                    <li>العنوان: شارع الزهور، مدينة شفشاون، المغرب</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Association.JDF/" target="_blank">FB</a>
+                    <a href="https://www.instagram.com/association_oeuvres_sociales/" target="_blank">IG</a>
+                    <a href="https://wa.me/212660003775" target="_blank">WA</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.php">الرئيسية</a></li>
+                    <li><a href="about.php">عن الجمعية</a></li>
+                    <li><a href="register.php">التسجيل</a></li>
+                    <li><a href="contact.php">اتصل بنا</a></li>
+                    <li><a href="goals.php">أهدافنا</a></li>
+                    <li><a href="partners.php">شركاؤنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>

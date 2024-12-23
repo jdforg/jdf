@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنشطة الجمعية - جمعية الشباب للتنمية والتكوين</title>
+    <style>
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* الهيدر */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to right, #1e3d58, #ffd700);
+            color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 50px;
+            margin-right: 10px;
+            animation: logoPulse 2s infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #1e3d58;
+        }
+
+        /* البطل */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('imag3.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* الأنشطة */
+        .activities {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .activity {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .activity:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .activity img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .activity h2 {
+            font-size: 1.5rem;
+            color: #1e3d58;
+            padding: 10px;
+        }
+
+        .activity p {
+            padding: 0 10px 20px;
+            color: #666;
+        }
+
+        /* زر العودة إلى الأعلى */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1e3d58;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #ffd700;
+        }
+
+
+
+/* الفوتر */
+footer {
+    background: #1e3d58;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffd700;
+}
+
+.footer-section iframe {
+    border: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="imag100.jpg" alt="لوغو الجمعية">
+                <h1>JDF</h1>
+            </div>
+                 <nav class="nav justify-content-center">
+            <a class="nav-link" href="index.php">Accueil</a>
+            <a class="nav-link" href="about.php">À propos</a>
+            <a class="nav-link" href="register.php">Inscription</a>
+            <a class="nav-link" href="contact.php">Contactez-nous</a>
+            <a class="nav-link" href="goals.php">Objectifs</a>
+            <a class="nav-link" href="partners.php">Partenaires</a>
+        </nav>
+        </div>
+    </header>
+
+    <div class="hero" id="home">
+        <div>
+            <p>Bienvenue à l'Association des Jeunes pour le Développement et la Formation</p>
+            <p>L'Association des Jeunes pour le Développement et la Formation (JDF) vise à réaliser un développement durable dans la société en soutenant les jeunes et en développant leurs compétences.</p>
+            <p>جمعية الشباب للتنمية والتكوين هي منظمة غير ربحية تهدف إلى تعزيز التنمية المستدامة وتمكين الشباب من خلال التعليم والتدريب. نحن نؤمن بقوة الشباب وقدرتهم على إحداث تغيير إيجابي في مجتمعاتهم. من خلال برامجنا المتنوعة، نسعى لتزويد الشباب بالمهارات والمعرفة اللازمة لتحقيق أهدافهم وطموحاتهم.</p>
+        </div>
+    </div>
+
+    
+    <section id="activities" class="activities">
+        <div class="activity">
+        <img src="imag3.jpg" alt="نشاط 3">
+        <h2>le salon d'emploi</h2>
+            <p>L'exposition Emploi de Chefchaouen ouvre de nouveaux horizons pour les jeunes de la ville L'Association de la jeunesse, en partenariat avec l'association sociale des contrats « ES Maroc » et la Direction régionale de la jeunesse, ont organisé la première exposition de l'industrie de la ville. Chefchaouen, les 24 et 25 octobre, cet événement exceptionnel permettra d'améliorer les opportunités d'emploi pour les jeunes et de suivre les idées entrepreneuriales qui souhaitent créer leur propre entreprise. L'exposition vise à créer une communication directe entre les demandeurs d'emploi, les entreprises et les institutions participantes, car elle permet aux jeunes de montrer leurs compétences et de discuter des opportunités d'emploi disponibles. à des projets réussis et influents dans la société.
+            </p>
+        
+        </div>
+        <div class="activity">
+        <img src="imag4.jpg" alt=">
+        <a href="formation.php">
+            <h2>formation</h2>
+            <p>Association de la jeunesse, en coordination avec l’Association ES Maroc, organise une formation intitulée « Améliorer les compétences des jeunes pour entrer sur le marché du travail ».  La séance est prévue le mercredi 28 août 2024, à onze heures du matin, à l'Espace Mémoire Historique de la Résistance et de Libération à Chefchaouen.  Ce cours vise à doter les jeunes des compétences nécessaires pour entrer sur le marché du travail et améliorer leurs opportunités de carrière grâce à un ensemble d'activités et de formations axées sur le développement des capacités pratiques et techniques. 
+ Créateur publicitaire 💻berrady walid
+Écrit par Youness elkhaldi</p>
+
+        </div>
+        <div class="activity">
+        <img src="imag5.jpg" alt="نشاط 3"><h2>Atelier en e-commerce</h2>
+            <p>L'Association  JDF a Chefchaouen a organisé le 29 septembre 2024 un atelier de formation sur le e-commerce, sous la direction du Professeur Adel Al-Sabbar de l'Association Marocaine de l'Entrepreneuriat.  L'atelier s'est tenu à la Maison des Associations de Chefchaouen à 16 heures du soir et visait à fournir des conseils pratiques sur la manière de réussir dans le domaine du commerce électronique.
+ Photographié par Mohamad Akki et Maimoun Massan
+@es.maroc </p>
+
+      
+    
+          
+
+</section>
+
+:<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>contact</h3>
+            <ul>
+                <li>
+        
+        
+        <p><a href="https://wa.me/212660003775">watsapp</a></p>
+        <p><a href="https://wa.me/212660310668">watsapp2</a></p>
+        <p><a href="https://www.instagram.com/association_oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw"> Instagram</a></p>
+     
+        <p><a href="https://www.facebook.com/Association.JDF/profilecard/?igsh=bXNqOGNxbnQwaXFw">facebook</a></p>
+
+        <p><a href="https://www.threads.net/@association__oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw">threads</a></p>
+
+        <p><a href="https://https://x.com/YOUNESSElk24801?s=09/profilecard/?igsh=bXNqOGNxbnQwaXFw">X.com</a></p>
+       
+       <p><a href="https://https://t.me/Beaux_chefchaouen/profilecard/?igsh=bXNqOGNxbnQwaXFw">telegam</a></p></li>
+                <li>gmail:associationjdf@gmail.com</li>
+                <li>الموقع: شارع الزهور، مدينة شفشاون، المغرب</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>موقعنا</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.6772961803526!2d-122.0842494846931!3d37.42199977982507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbbd2096188f5%3A0x46b1d7078e1b9c0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1625012269025!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer-section">
+            <h3>menu principal</h3>
+            <ul>
+           <li><a class="nav-link" href="index.php">Accueil</a>
+            </li>
+           <li> <a class="nav-link" href="about.php">À propos</a></li>
+            <li><a class="nav-link" href="register.php">Inscription</a></li>
+            <li><a class="nav-link" href="contact.php">Contactez-nous</a></li>
+           <li><a class="nav-link" href="goals.php">Objectifs</a></li>
+            <li><a class="nav-link" href="partners.php">Partenaires</a></li>
+        </nav>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 جمعية الشباب للتنمية. جميع الحقوق محفوظة.
+    </div>
+</footer>
+
+
+    <button class="scroll-top" onclick="scrollToTop()">⬆</button>
+
+    <script>
+        // زر العودة إلى الأعلى
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // إخفاء الهيدر عند التمرير
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

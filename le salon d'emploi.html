@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الرئيسية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            padding-bottom: 80px; /* حشوة إضافية لتجنب تغطية المحتوى */
+
+        }
+        .container {
+            padding: 20px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .mySlides {
+            display: none;
+        }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+        }
+        .slide-left-to-right {
+            animation: slideLeftToRight 10s infinite alternate;
+        }
+        .slide-right-to-left {
+            animation: slideRightToLeft 10s infinite alternate;
+        }
+        @keyframes slideLeftToRight {
+            from {transform: translateX(-100%);}
+            to {transform: translateX(100%);}
+        }
+        @keyframes slideRightToLeft {
+            from {transform: translateX(100%);}
+            to {transform: translateX(-100%);}
+        }
+        .text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #002060;
+            font-size: 18px;
+            padding: 8px 12px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+            width: 70px; /* يمكنك تعديل العرض حسب حجم اللوغو الخاص بك */
+        
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #002060; /* الأزرق الغامق */
+            color: #FFD700; /* الأصفر */
+            padding: 20px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+        }
+        .footer-section h3 {
+            border-bottom: 1px solid #FFD700; /* الأصفر */
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-bottom {
+            background-color: #001540; /* لون أغمق قليلاً للتمييز */
+            color: #FFD700; /* الأصفر */
+            text-align: center;
+            padding: 10px 0;
+        }
+        .footer-section a {
+            color: #FFD700; /* الأصفر */
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative; /* بدلاً من fixed */
+            width: 100%; /* عرض كامل للصفحة */
+            z-index: 1000; /* ترتيب فوق العناصر الأخرى */
+        }
+
+        /* الأنشطة */
+        .activities {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .activity {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .activity:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .activity img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .activity h2 {
+            font-size: 1.5rem;
+            color: #1e3d58;
+            padding: 10px;
+        }
+
+        .activity p {
+            padding: 0 10px 20px;
+            color: #666;
+        }
+
+        /* مؤشرات */
+        .dot-container {
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 5px;
+            background-color:#002060;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active {
+            background-color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <img src="imag100.jpg" class="logo" alt="Logo">
+        <div class="mySlides fade">
+            <img src="imag4.jpg" style="width:100%"> <!-- تأكد من أن جميع المسارات صحيحة -->
+            <div class="text"><h1>Bienvenue à l'Association des Jeunes pour le Développement et la Formation</h1></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="salon 4.jpg" style="width:100%">
+            <div class="text"><h1>L'Association des Jeunes pour le Développement et la Formation (JDF) vise à réaliser un développement durable dans la société en soutenant les jeunes et en développant leurs compétences.</h1></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="salon1.jpg" style="width:100%">
+            <div class="text"><h1>>جمعية الشباب للتنمية والتكوين هي منظمة غير ربحية تهدف إلى تعزيز التنمية المستدامة وتمكين الشباب من خلال التعليم والتدريب. نحن نؤمن بقوة الشباب وقدرتهم على إحداث تغيير إيجابي في مجتمعاتهم. من خلال برامجنا المتنوعة، نسعى لتزويد الشباب بالمهارات والمعرفة اللازمة لتحقيق أهدافهم وطموحاتهم.</div>
+            </h1>
+            </div>
+        <div class="mySlides fade">
+            <img src="salon2.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="salon3.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div> <div class="mySlides fade">
+            <img src="salon7.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div> <div class="mySlides fade">
+            <img src="salon9.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div> <div class="mySlides fade">
+            <img src="salon10.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div> <div class="mySlides fade">
+            <img src="salon11.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div> <div class="mySlides fade">
+            <img src="salon12.jpg" style="width:100%">
+            <div class="text"><h1>jdf</h1></div>
+        </div>
+    </div>
+    <br>
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span> 
+        <span class="dot" onclick="currentSlide(6)"></span> 
+        <span class="dot" onclick="currentSlide(7)"></span> 
+        <span class="dot" onclick="currentSlide(8)"></span> 
+    </div>
+    <div class="container">
+          
+     
+
+        <section id="activities" class="activities">
+        <div class="activity">
+        <a href="le salon d'emploi.php"><img src="salon1.jpg" alt="نشاط 3"></a>
+        <a href="le salon d'emploi.php"><h2>le salon d'emploi</h2></a>
+            <p>L'exposition Emploi de Chefchaouen ouvre de nouveaux horizons pour les jeunes de la ville L'Association de la jeunesse, en partenariat avec l'association sociale des contrats « ES Maroc » et la Direction régionale de la jeunesse, ont organisé la première exposition de l'industrie de la ville. Chefchaouen, les 24 et 25 octobre, cet événement exceptionnel permettra d'améliorer les opportunités d'emploi pour les jeunes et de suivre les idées entrepreneuriales qui souhaitent créer leur propre entreprise. L'exposition vise à créer une communication directe entre les demandeurs d'emploi, les entreprises et les institutions participantes, car elle permet aux jeunes de montrer leurs compétences et de discuter des opportunités d'emploi disponibles. à des projets réussis et influents dans la société.
+            </p>
+            <a href="le salon d'emploi.php">en savoir plus</a>
+        </div>
+        <div class="activity">
+        <a href="formation.php"><img src="salon2.jpg" alt="></a>
+        <a href="formation.php"><h2>formation</h2></a>
+            <p>Association de la jeunesse, en coordination avec l’Association ES Maroc, organise une formation intitulée « Améliorer les compétences des jeunes pour entrer sur le marché du travail ».  La séance est prévue le mercredi 28 août 2024, à onze heures du matin, à l'Espace Mémoire Historique de la Résistance et de Libération à Chefchaouen.  Ce cours vise à doter les jeunes des compétences nécessaires pour entrer sur le marché du travail et améliorer leurs opportunités de carrière grâce à un ensemble d'activités et de formations axées sur le développement des capacités pratiques et techniques. 
+ Créateur publicitaire 💻berrady walid
+Écrit par Youness elkhaldi</p>
+<a href="formation.php">en savoir plus</a>
+        </div>
+        <div class="activity">
+        <a href="Atelier en e-commerce.php"><img src="salon3.jpg" alt="نشاط 3"></a>
+        <a href="Atelier en e-commerce.php"><h2>Atelier en e-commerce</h2></a>
+            <p>L'Association  JDF a Chefchaouen a organisé le 29 septembre 2024 un atelier de formation sur le e-commerce, sous la direction du Professeur Adel Al-Sabbar de l'Association Marocaine de l'Entrepreneuriat.  L'atelier s'est tenu à la Maison des Associations de Chefchaouen à 16 heures du soir et visait à fournir des conseils pratiques sur la manière de réussir dans le domaine du commerce électronique.
+ Photographié par Mohamad Akki et Maimoun Massan
+@es.maroc </p>
+<a href="Atelier en e-commerce.php">en savoir plus</a>
+        </div>
+    <div class="activity">
+    <a href="réunion avec le presedent es maroc.php"><img src="salon7.jpg" alt="نشاط 3"></a>
+    <a href="réunion avec le presedent es maroc.php"><h2>réunion avec le presedent es maroc</h2>s</a> 
+            <p>L'Association JDf Chefchaouen a organisé une réunion avec le Président de l'Association Marocaine des Entreprises Sociales ES Maroc le samedi 7 septembre 2024 à 15 heures. Nous avons exploré les opportunités de partenariat. accroître les opportunités de compétences des jeunes et améliorer la production professionnelle et économique de la jeunesse de Chefchaouen.
+ Photographié par Mohamed Aakki, 
+écrit par Youness elkhaldi </p>
+<a href="réunion avec le presedent es maroc.php">en savoir plus</a>
+        </div>
+    <div class="activity">
+        <a href="activite.php"><img src="imag3.jpg" alt="نشاط 3"></a>
+        <a href="réunion avec le presedent es maroc.php"><h2>la publicité</h2></a>
+            <p>Dans le cadre de la promotion et de la publicité du Forum de l'Emploi à Chefchaouen, le président de l'Association  JDF Chefchaouen a effectué une visite au Centre de Formation Professionnelle et de Promotion de l'Emploi, afin de les inviter à participer au forum et à profiter des activités du salon et des ateliers parallèles.
+@es.maroc
+https://ee-eu.kobotoolbox.org/x/15hU91Iz</p>
+<a href="activite.php">en savoir plus</a>
+        </div>
+        <div class="activity">
+        <a href="la Marche Verte.php"><img src="salon11.jpg" alt="نشاط 3"></a>
+        <a href="activite.php"><h1>la Marche Verte</h1></a> 
+      
+            <p>Dans lnniversaire de la Marche Verte, l'Association JDF Chefchaouen, en collaboration avec l'Espace de la Mémoire Historique de la Libération, a organisé un colloque scientifique intitulé : « La Marche Verte : Un parcours ininterrompu de créativité dans la créativité » Cette conférence a eu lieu dans les locaux de l'Espace de la Mémoire Historique de Chefchaouen.
+
+Objectifs de la conférence :
+
+Ce colloque scientifique avait pour but de mettre en lumière les dimensions politiques, sociales et culturelles de cet événement historique. Il s'agissait également de rappeler les événements politiques marquants et de souligner les réalisations de développement qui ont suivi cette initiative. La conférence visait à renforcer la conscience nationale chez les jeunes et à ancrer les valeurs de l'unité territoriale.</p>
+<a href="la Marche Verte.php">en savoir plus</a>
+        </div>
+    <div class="activity">
+
+    <a href=" réunion spéciale avec le Président de JCI Maroc.php"><img src="salon 4.jpg" alt="نشاط 3"></a>
+    <a href=" réunion spéciale avec le Président de JCI Maroc.php"><h2> réunion spéciale avec le Président de JCI Maroc</h2></a> 
+            <p>L'Association des Jeunes pour le Développement et la Formation de Chefchaouen a tenu une réunion spéciale avec le Président de JCI Maroc afin de nouer un partenariat dans les activités et événements futurs.  Au cours de la réunion, la future coopération entre l'association et JCI Maroc a été discutée et des idées ont été échangées sur la manière de promouvoir le développement local et le développement de la jeunesse dans la région de Chefchaouen.  Un accord a également été conclu pour organiser des programmes de formation et des ateliers conjoints afin d'améliorer les compétences des jeunes et d'améliorer leur capacité à participer efficacement à la société.  Ce partenariat constituera une étape importante vers l’atteinte des objectifs de l’association et le renforcement de son rôle dans le développement de la communauté locale. </p>
+            <a href="une réunion spéciale avec le Président de JCImorrocco.php">en savoir plus</a>
+        </div>
+        </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+            <h3>contact</h3>
+            <ul>
+                <li>
+        <p><a href="https://wa.me/212660003775">watsapp</a></p>
+        <p><a href="https://wa.me/212660310668">watsapp2</a></p>
+        <p><a href="https://www.instagram.com/association_oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw"> Instagram</a></p>
+     
+        <p><a href="https://www.facebook.com/Association.JDF/profilecard/?igsh=bXNqOGNxbnQwaXFw">facebook</a></p>
+
+        <p><a href="https://www.threads.net/@association__oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw">threads</a></p>
+
+        <p><a href="https://https://x.com/YOUNESSElk24801?s=09/profilecard/?igsh=bXNqOGNxbnQwaXFw">X.com</a></p>
+       
+       <p><a href="https://https://t.me/Beaux_chefchaouen/profilecard/?igsh=bXNqOGNxbnQwaXFw">telegam</a></p></li>
+                <li>gmail:associationjdf@gmail.com</li>
+                <li>الموقع: شارع الزهور، مدينة شفشاون، المغرب</li>
+            </ul>
+        </div>
+            <div class="footer-section">
+                <h3>موقعنا</h3>
+                <iframe src="https://www.google.com/maps/embed?..."></iframe>
+            </div>
+            <div class="footer-section">
+                <h3>menu principal</h3>
+              
+            <ul>
+           <li><a class="nav-link" href="index.php">Accueil</a>
+            </li>
+           <li> <a class="nav-link" href="about.php">À propos</a></li>
+            <li><a class="nav-link" href="register.php">Inscription</a></li>
+            <li><a class="nav-link" href="contact.php">Contactez-nous</a></li>
+           <li><a class="nav-link" href="goals.php">Objectifs</a></li>
+            <li><a class="nav-link" href="partners.php">Partenaires</a></li>
+        </nav>
+      
+      
+    </footer>
+
+    <script>
+      let slideIndex = 0;
+        let slides, dots;
+
+        function showSlides() {
+            slides = document.getElementsByClassName("mySlides");
+            dots = document.getElementsByClassName("dot");
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+
+            setTimeout(showSlides, 3000); // تغيير الصورة كل 3 ثواني
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides();
+        });
+    </script>
+</body>
+</html>

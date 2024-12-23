@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الرئيسية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            padding-bottom: 80px; /* حشوة إضافية لتجنب تغطية المحتوى */
+        }
+
+        .menu-icon {
+            position: fixed;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 5px;
+            background-color:rgb(4, 2, 62);
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .sidebar {
+            height: 70%;
+            width: 30%;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0;
+            background-color:rgb(33, 5, 125);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+
+            text-align:sen ; /* اتجاه النص */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color:rgb(244, 248, 9);
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color:rgb(243, 212, 8);
+        }
+
+        .sidebar a.closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        .text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #f2f2f2;
+            font-size: 18px;
+            padding: 8px 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            z-index: 1;
+            width: 40px; /* يمكنك تعديل العرض حسب حجم اللوغو الخاص بك */
+            
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color:   #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color:rgb(46, 8, 173);
+        }
+
+        /* الأنشطة */
+        .activities {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .activity {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .activity:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .activity img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .activity h2 {
+            font-size: 1.5rem;
+            color:rgb(5, 77, 139);
+            padding: 10px;
+        }
+
+        .activity p {
+            padding: 0 10px 20px;
+            color: #666;
+        }body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-bottom: 80px; /* حشوة إضافية لتجنب تغطية المحتوى */
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.member-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.member {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.frame {
+    border: 5px solid #003366; /* إضافة إطار ملون */
+    border-radius: 10px; /* إضافة الحواف المدورة للإطار */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل للإطار */
+    background-color:rgb(15, 2, 91); /* لون الخلفية داخل الإطار */
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 3px; /* إزالة الحواف المدورة لجعل الصورة مربعة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.member p {
+    margin-top: 5px;
+    font-size: 56px;
+    color: #333;
+    background-color:hsl(0, 0.00%, 98.80%); /* لون الخلفية لإطار الاسم */
+    padding: 1px; /* حشوة لإطار الاسم */
+    border-radius: 2px; /* حواف مدورة لإطار الاسم */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ظل لإطار الاسم */
+    display: inline-block; /* التأكد من أن الإطار يلتف حول النص فقط */
+    border: 1px solid #333; /* إضافة إطار للإسم */
+}
+.member-gallery-wrapper {
+    border: 10px solidrgb(231, 239, 12); /* إطار يجمع كل الأعضاء */
+    border-radius: 5px; /* إضافة الحواف المدورة للإطار */
+    padding: 20px;
+    background-color:#090250; /* لون الخلفية داخل الإطار */
+    box-shadow: 0 4px 8px rgba(200, 203, 11, 0.1); /* إضافة ظل للإطار */
+}
+/* إعدادات النافذة المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(36, 9, 235, 0.5);
+}
+
+.modal-content {
+    background-color:hsl(0, 36.80%, 96.30%); /* اللون الأزرق */
+    color:rgb(12, 108, 177); /* اللون الأصفر للنص */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* تعديل العرض لجعلها عمودية */
+    max-width: 150px; /* تعديل العرض الأقصى */
+    text-align: right; /* اتجاه النص */
+    direction: rtl;
+}
+
+.close {
+    color:rgb(255, 255, 255); /* اللون الأصفر */
+    float: left; /* عكس اتجاه النص */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.member-info {
+    display: none;
+}
+
+.member-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.member-info h2 {
+    margin-bottom: 10px;
+}
+
+.member-info p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+footer {
+  background-color:rgb(6, 50, 137); 
+  color: #FFD700; 
+            text-align: center;
+            padding: 20px 40px;
+            position: relative; /* بدلاً من fixed */
+            width: 100%; /* عرض كامل للصفحة */
+            z-index: 1000; /* ترتيب فوق العناصر الأخرى */
+            margin-top: 100px;
+          
+        }
+        
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffd700;
+}
+
+.footer-section iframe {
+    border: 0;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+/* Responsive Adjustments */
+@media only screen and (max-width: 450px) {
+    main {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+    
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- أيقونة الثلاث خطوط -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- القائمة الجانبية -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">×</a>
+        <a href="index.php">Accueil</a>
+        <a href="about.php">À propos</a>
+        <a href="register.php">Inscription</a>
+        <a href="contact.php">Contactez-nous</a>
+        <a href="goals.php">Objectifs</a>
+        <a href="partners.php">Partenaires</a>
+        <h3>contact</h3>
+            <ul>
+                <li>
+        <a href="https://wa.me/212660003775">watsapp</a>
+        <a href="https://wa.me/212660310668">watsapp2</a>
+        <a href="https://www.instagram.com/association_oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw"> Instagram</a>
+     
+        <a href="https://www.facebook.com/Association.JDF/profilecard/?igsh=bXNqOGNxbnQwaXFw">facebook</a>
+
+        <a href="https://www.threads.net/@association__oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw">threads</a>
+
+        <a href="https://https://x.com/YOUNESSElk24801?s=09/profilecard/?igsh=bXNqOGNxbnQwaXFw">X.com</a>
+       
+       <a href="https://https://t.me/Beaux_chefchaouen/profilecard/?igsh=bXNqOGNxbnQwaXFw">telegam</a>
+                <li>gmail:associationjdf@gmail.com</li>
+    </div>
+
+    <!-- بقية محتوى الصفحة -->
+    <div class="slideshow-container">
+        <img src="imag100.jpg" class="logo" alt="Logo">
+        <div class="mySlides fade">
+            <img src="ss.jpg" style="width:100%"> <!-- تأكد من أن جميع المسارات صحيحة -->
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="hh.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="b.jpg" style="width:100%">
+            <div class="text">></div>
+            </h1>
+            </div>
+        <div class="mySlides fade">
+            <img src="ff.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+    </div>
+    
+    <br>
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <section id="activities" class="activities">
+        <div class="activity">
+        <a href="le salon d'emploi.php"><img src="imag3.jpg" alt="نشاط 3"></a>
+        <a href="le salon d'emploi.php"><h2>le salon d'emploi</h2></a>
+            <p>L'exposition Emploi de Chefchaouen ouvre de nouveaux horizons pour les jeunes de la ville L'Association de la jeunesse, en partenariat avec l'association sociale des contrats « ES Maroc » et la Direction régionale de la jeunesse, ont organisé la première exposition de l'industrie de la ville. Chefchaouen, les 24 et 25 octobre, cet événement exceptionnel permettra d'améliorer les opportunités d'emploi pour les jeunes et de suivre les idées entrepreneuriales qui souhaitent créer leur propre entreprise. L'exposition vise à créer une communication directe entre les demandeurs d'emploi, les entreprises et les institutions participantes, car elle permet aux jeunes de montrer leurs compétences et de discuter des opportunités d'emploi disponibles. à des projets réussis et influents dans la société.
+            </p>
+            <a href="le salon d'emploi.php">en savoir plus</a>
+        </div>
+        <div class="activity">
+        <a href="formation.php"><img src="imag4.jpg" alt="></a>
+        <a href="formation.php"><h2>formation</h2></a>
+            <p>Association de la jeunesse, en coordination avec l’Association ES Maroc, organise une formation intitulée « Améliorer les compétences des jeunes pour entrer sur le marché du travail ».  La séance est prévue le mercredi 28 août 2024, à onze heures du matin, à l'Espace Mémoire Historique de la Résistance et de Libération à Chefchaouen.  Ce cours vise à doter les jeunes des compétences nécessaires pour entrer sur le marché du travail et améliorer leurs opportunités de carrière grâce à un ensemble d'activités et de formations axées sur le développement des capacités pratiques et techniques. 
+ Créateur publicitaire 💻berrady walid
+Écrit par Youness elkhaldi</p>
+<a href="formation.php">en savoir plus</a>
+        </div>
+        <div class="activity">
+        <a href="Atelier en e-commerce.php"><img src="imag5.jpg" alt="نشاط 3"></a>
+        <a href="Atelier en e-commerce.php"><h2>Atelier en e-commerce</h2></a>
+            <p>L'Association  JDF a Chefchaouen a organisé le 29 septembre 2024 un atelier de formation sur le e-commerce, sous la direction du Professeur Adel Al-Sabbar de l'Association Marocaine de l'Entrepreneuriat.  L'atelier s'est tenu à la Maison des Associations de Chefchaouen à 16 heures du soir et visait à fournir des conseils pratiques sur la manière de réussir dans le domaine du commerce électronique.
+ Photographié par Mohamad Akki et Maimoun Massan
+@es.maroc </p>
+<a href="Atelier en e-commerce.php">en savoir plus</a>
+        </div>
+    <div class="activity">
+    <a href="réunion avec le presedent es maroc.php"><img src="imag6.jpg" alt="نشاط 3"></a>
+    <a href="réunion avec le presedent es maroc.php"><h2>réunion avec le presedent es maroc</h2>s</a> 
+            <p>L'Association JDf Chefchaouen a organisé une réunion avec le Président de l'Association Marocaine des Entreprises Sociales ES Maroc le samedi 7 septembre 2024 à 15 heures. Nous avons exploré les opportunités de partenariat. accroître les opportunités de compétences des jeunes et améliorer la production professionnelle et économique de la jeunesse de Chefchaouen.
+ Photographié par Mohamed Aakki, 
+écrit par Youness elkhaldi </p>
+<a href="réunion avec le presedent es maroc.php">en savoir plus</a>
+        </div>
+    <div class="activity">
+        <a href="activite.php"><img src="imag10.jpg" alt="نشاط 3"></a>
+        <a href="réunion avec le presedent es maroc.php"><h2>la publicité</h2></a>
+            <p>Dans le cadre de la promotion et de la publicité du Forum de l'Emploi à Chefchaouen, le président de l'Association  JDF Chefchaouen a effectué une visite au Centre de Formation Professionnelle et de Promotion de l'Emploi, afin de les inviter à participer au forum et à profiter des activités du salon et des ateliers parallèles.
+@es.maroc
+https://ee-eu.kobotoolbox.org/x/15hU91Iz</p>
+<a href="activite.php">en savoir plus</a>
+        </div>
+        <div class="activity">
+    
+            
+        <a href="la Marche Verte.php"><img src="imag11.jpg" alt="نشاط 3"></a>
+        <a href="activite.php"><h1>la Marche Verte</h1></a> 
+      
+            <p>Dans lnniversaire de la Marche Verte, l'Association JDF Chefchaouen, en collaboration avec l'Espace de la Mémoire Historique de la Libération, a organisé un colloque scientifique intitulé : « La Marche Verte : Un parcours ininterrompu de créativité dans la créativité » Cette conférence a eu lieu dans les locaux de l'Espace de la Mémoire Historique de Chefchaouen.
+
+Objectifs de la conférence :
+
+Ce colloque scientifique avait pour but de mettre en lumière les dimensions politiques, sociales et culturelles de cet événement historique. Il s'agissait également de rappeler les événements politiques marquants et de souligner les réalisations de développement qui ont suivi cette initiative. La conférence visait à renforcer la conscience nationale chez les jeunes et à ancrer les valeurs de l'unité territoriale.</p>
+<a href="la Marche Verte.php">en savoir plus</a>
+        </div>
+    <div class="activity">
+
+    <a href="une réunion spéciale avec le Président de JCImorrocco.php"><img src="imag9.jpg" alt="نشاط 3"></a>
+    <a href="une réunion spéciale avec le Président de JCImorrocco.php"><h2>une réunion spéciale avec le Président de JCImorrocco</h2></a> 
+            <p>L'Association des Jeunes pour le Développement et la Formation de Chefchaouen a tenu une réunion spéciale avec le Président de JCI Maroc afin de nouer un partenariat dans les activités et événements futurs.  Au cours de la réunion, la future coopération entre l'association et JCI Maroc a été discutée et des idées ont été échangées sur la manière de promouvoir le développement local et le développement de la jeunesse dans la région de Chefchaouen.  Un accord a également été conclu pour organiser des programmes de formation et des ateliers conjoints afin d'améliorer les compétences des jeunes et d'améliorer leur capacité à participer efficacement à la société.  Ce partenariat constituera une étape importante vers l’atteinte des objectifs de l’association et le renforcement de son rôle dans le développement de la communauté locale. </p>
+            <a href="une réunion spéciale avec le Président de JCImorrocco.php">en savoir plus</a>
+        </div>
+
+    </section>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الأعضاء</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="member-gallery-wrapper"> <!-- إطار يجمع كل الأعضاء -->
+        <div class="member-gallery">
+            <div class="member" onclick="showInfo('member1')">
+                <div class="frame">
+                    <img src="imag3.jpg" alt="عضو 1">
+                    <p>عضو 1</p>
+                </div>
+            </div>
+            <div class="member" onclick="showInfo('member2')">
+                <div class="frame">
+                <img src="imag3.jpg" alt="عضو 1">
+                    <p>عضو 2</p>
+                </div>
+            </div>
+            <div class="member" onclick="showInfo('member3')">
+                <div class="frame">
+                <img src="imag3.jpg" alt="عضو 1">
+                    <p>عضو 3</p>
+                </div>
+              </div>
+                <div class="member" onclick="showInfo('member1')">
+                <div class="frame">
+                    <img src="imag3.jpg" alt="عضو 1">
+                    <p>عضو 1</p>
+                </div>
+            </div>
+            <div class="member" onclick="showInfo('member2')">
+                <div class="frame">
+                <img src="imag3.jpg" alt="عضو 1">
+                    <p>عضو 2</p>
+                </div>
+            </div>
+            <div class="member" onclick="showInfo('member3')">
+                <div class="frame">
+                <img src="imag3.jpg" alt="عضو 1">
+                    <p>عضو 3</p>
+                </div>
+            </div>
+            <!-- يمكنك إضافة المزيد من الأعضاء بنفس الطريقة -->
+        </div>
+    </div> <!-- نهاية الإطار -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="member1" class="member-info">
+                <img src="imag3.jpg" alt="عضو 1">
+                <h2>presedent</h2>
+                <p>معلومات عضو 1...</p>
+            </div>
+            <div id="member2" class="member-info">
+            <img src="imag3.jpg" alt="عضو 1">
+            <h2>presedent</h2>
+                <p>معلومات عضو 2...</p>
+            </div>
+            <div id="member3" class="member-info">
+            <img src="imag3.jpg" alt="عضو 1">
+            <h2>presedent</h2>
+                <p>معلومات عضو 3...</p>
+            </div>
+            <div id="member1" class="member-info">
+                <img src="imag3.jpg" alt="عضو 1">
+                <h2>presedent</h2>
+                <p>معلومات عضو 1...</p>
+            </div>
+            <div id="member2" class="member-info">
+            <img src="imag3.jpg" alt="عضو 1">
+            <h2>presedent</h2>
+                <p>معلومات عضو 2...</p>
+            </div>
+            <div id="member3" class="member-info">
+            <img src="imag3.jpg" alt="عضو 1">
+            <h2>presedent</h2>
+                <p>معلومات عضو 3...</p>
+            </div>
+            <div id="member1" class="member-info">
+                <img src="imag3.jpg" alt="عضو 1">
+                <h2>presedent</h2>
+                <p>معلومات عضو 1...</p>
+            </div>
+            <div id="member2" class="member-info">
+            <img src="imag3.jpg" alt="عضو 1">
+            <h2>presedent</h2>
+                <p>معلومات عضو 2...</p>
+            </div>
+            <div id="member3" class="member-info">
+            <img src="imag3.jpg" alt="عضو 1">
+            <h2>presedent</h2>
+                <p>معلومات عضو 3...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>معلومات الاتصال</h3>
+            <ul>
+                <li>
+      
+        <p><a href="https://wa.me/212660003775">watsapp</a></p>
+        <p><a href="https://wa.me/212660310668">watsapp2</a></p>
+        <p><a href="https://www.instagram.com/association_oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw"> Instagram</a></p>
+     
+        <p><a href="https://www.facebook.com/Association.JDF/profilecard/?igsh=bXNqOGNxbnQwaXFw">facebook</a></p>
+
+        <p><a href="https://www.threads.net/@association__oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw">threads</a></p>
+
+        <p><a href="https://https://x.com/YOUNESSElk24801?s=09/profilecard/?igsh=bXNqOGNxbnQwaXFw">X.com</a></p>
+       
+       <p><a href="https://https://t.me/Beaux_chefchaouen/profilecard/?igsh=bXNqOGNxbnQwaXFw">telegam</a></p></li>
+                <li>gmail:associationjdf@gmail.com</li>
+                <li>الموقع: شارع الزهور، مدينة شفشاون، المغرب</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>موقعنا</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.6772961803526!2d-122.0842494846931!3d37.42199977982507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbbd2096188f5%3A0x46b1d7078e1b9c0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1625012269025!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer-section">
+            <h3>menu principal</h3>
+            <ul>
+           <li><a class="nav-link" href="index.php">Accueil</a>
+            </li>
+           <li> <a class="nav-link" href="about.php">À propos</a></li>
+            <li><a class="nav-link" href="register.php">Inscription</a></li>
+            <li><a class="nav-link" href="contact.php">Contactez-nous</a></li>
+           <li><a class="nav-link" href="goals.php">Objectifs</a></li>
+            <li><a class="nav-link" href="partners.php">Partenaires</a></li>
+        </nav>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 جمعية الشباب للتنمية. جميع الحقوق محفوظة.
+    </div>
+</footer>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById("sidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+
+        let slideIndex = 0;
+        let slides, dots;
+
+        function showSlides() {
+            slides = document.getElementsByClassName("mySlides");
+            dots = document.getElementsByClassName("dot");
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+
+            setTimeout(showSlides, 3000); // تغيير الصورة كل 3 ثواني
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides();
+        });
+        function showInfo(memberId) {
+    const modal = document.getElementById("infoModal");
+    const memberInfos = document.getElementsByClassName("member-info");
+
+    // إخفاء جميع المعلومات
+    for (let i = 0; i < memberInfos.length; i++) {
+        memberInfos[i].style.display = "none";
+    }
+
+    // عرض المعلومات الخاصة بالعضو المحدد
+    const memberInfo = document.getElementById(memberId);
+    memberInfo.style.display = "block";
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    const modal = document.getElementById("infoModal");
+    modal.style.display = "none";
+}
+    </script>
+</body>
+</html>
+
+

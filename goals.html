@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectifs de l'association - Association des jeunes pour le développement et la formation</title>
+    <style>
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* الهيدر */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to right, #1e3d58, #ffd700);
+            color: white;
+            padding: 1px 1px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 35px;
+            margin-right: 10px;
+            animation: logoPulse 2s infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color:z #1e3d58;
+        }
+
+        /* Main content */
+        .container {
+            background: linear-gradient(to right, #1e3d58, #ffd700);
+            width: 90%;
+            max-width: 1500px;
+            margin: 6px auto; /* Adjusted for fixed header */
+            padding: 0px 0px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color:hsl(207, 26.80%, 92.00%);
+            margin-bottom: 10px;
+            font-size: 1.8em; /* Reduced font size */
+        }
+
+        main {
+            padding: 10px;
+            background:rgb(253, 254, 255);
+            border-radius: 8px;
+        }
+
+        /* List group items */
+        .list-group-item {
+            font-size: 1.1em;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #FFFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .list-group-item:hover {
+            background-color:rgb(21, 121, 222);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: #1e3d58;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #ffd700;
+        }
+
+/* الفوتر */
+footer {
+    background: #1e3d58;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffd700;
+}
+
+.footer-section iframe {
+    border: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="imag100.jpg" alt="Logo de l'association">
+                <h1>JDF</h1>
+            </div>
+            <nav class="nav justify-content-center">
+            <a class="nav-link" href="index.php">Accueil</a>
+            <a class="nav-link" href="about.php">À propos</a>
+            <a class="nav-link" href="register.php">Inscription</a>
+            <a class="nav-link" href="contact.php">Contactez-nous</a>
+            <a class="nav-link" href="goals.php">Objectifs</a>
+            <a class="nav-link" href="partners.php">Partenaires</a>
+        </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1>objictif</h1>
+            <h2>Nos Objectifs</h2>
+            <ul class="list-group">
+                <li class="list-group-item">1. Développement du leadership : Développer les jeunes leaders capables d'influencer positivement leurs communautés.</li>
+                <li class="list-group-item">2. Promotion du développement communautaire : L'association travaille à améliorer les communautés locales à travers des projets visant à traiter les problématiques sociales et économiques.</li>
+                <li class="list-group-item">3. Coopération internationale : Favoriser la coopération entre les jeunes du monde entier et renforcer les relations entre les différentes cultures.</li>
+                <li class="list-group-item">4. Développement des compétences personnelles et professionnelles : Aider les membres à développer leurs compétences à travers des activités et des programmes de formation dans divers domaines tels que la communication, la planification stratégique et le travail d'équipe.</li>
+                <li class="list-group-item">5. Focus sur la responsabilité sociale : Encourager les membres à participer à l'amélioration de la qualité de vie grâce au bénévolat social.</li>
+                <li class="list-group-item">6. Développement professionnel : Offrir des opportunités pour développer les compétences professionnelles des étudiants en organisant des ateliers, des séminaires et des événements visant à améliorer les compétences professionnelles des étudiants.</li>
+                <li class="list-group-item">7. Interaction avec le marché et le secteur professionnel : L'association contribue à connecter les étudiants avec le marché du travail en organisant des rencontres avec des professionnels et en établissant des partenariats avec des entreprises et des institutions pour offrir des opportunités de stage et d'emploi.</li>
+                <li class="list-group-item">8. Encourager l'esprit de coopération et la responsabilité sociale : Encourager l'engagement dans des projets de bénévolat et des activités sociales visant à améliorer les communautés locales.</li>
+                <li class="list-group-item">9. Organisation d'activités culturelles et scientifiques : L'association cherche à enrichir la vie étudiante en organisant des événements culturels, sportifs et scientifiques visant à enrichir l'expérience universitaire des étudiants.</li>
+                <li class="list-group-item">10. Développement de l'entrepreneuriat : L'association vise à encourager les jeunes à créer des projets innovants et à développer leurs compétences en matière d'entrepreneuriat.</li>
+                <li class="list-group-item">11. Promotion du bénévolat et de la responsabilité sociale : Encourager la participation à des activités sociales et bénévoles visant à améliorer les communautés locales.</li>
+                <li class="list-group-item">12. Organisation d'activités culturelles et professionnelles : L'association organise des ateliers, des séminaires et des conférences pour échanger des expériences et des connaissances entre les membres.</li>
+                <li class="list-group-item">13. Construction d'un réseau de relations professionnelles : L'association offre une plateforme pour la communication et l'interaction entre les jeunes et les experts dans divers domaines.</li>
+            </ul>
+        </main>
+    </div>
+   
+    :<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>contact</h3>
+            <ul>
+                <li>
+        
+        
+        <p><a href="https://wa.me/212660003775">watsapp</a></p>
+        <p><a href="https://wa.me/212660310668">watsapp2</a></p>
+        <p><a href="https://www.instagram.com/association_oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw"> Instagram</a></p>
+     
+        <p><a href="https://www.facebook.com/Association.JDF/profilecard/?igsh=bXNqOGNxbnQwaXFw">facebook</a></p>
+
+        <p><a href="https://www.threads.net/@association__oeuvres_sociales/profilecard/?igsh=bXNqOGNxbnQwaXFw">threads</a></p>
+
+        <p><a href="https://https://x.com/YOUNESSElk24801?s=09/profilecard/?igsh=bXNqOGNxbnQwaXFw">X.com</a></p>
+       
+       <p><a href="https://https://t.me/Beaux_chefchaouen/profilecard/?igsh=bXNqOGNxbnQwaXFw">telegam</a></p></li>
+                <li>gmail:associationjdf@gmail.com</li>
+                <li>الموقع: شارع الزهور، مدينة شفشاون، المغرب</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>موقعنا</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.6772961803526!2d-122.0842494846931!3d37.42199977982507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbbd2096188f5%3A0x46b1d7078e1b9c0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1625012269025!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer-section">
+            <h3>menu principal</h3>
+            <ul>
+           <li><a class="nav-link" href="index.php">Accueil</a>
+            </li>
+           <li> <a class="nav-link" href="about.php">À propos</a></li>
+            <li><a class="nav-link" href="register.php">Inscription</a></li>
+            <li><a class="nav-link" href="contact.php">Contactez-nous</a></li>
+           <li><a class="nav-link" href="goals.php">Objectifs</a></li>
+            <li><a class="nav-link" href="partners.php">Partenaires</a></li>
+        </nav>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 جمعية الشباب للتنمية. جميع الحقوق محفوظة.
+    </div>
+</footer>
+    <button class="scroll-top" onclick="scrollToTop()">⬆</button>
+
+    
+    <script>
+        // زر العودة إلى الأعلى
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // إخفاء الهيدر عند التمرير
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
